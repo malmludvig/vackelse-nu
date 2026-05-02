@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>väckelse — #vackelse</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Berättar vad Gud gör i Sverige nu. His Kingdom Come.">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="nav">
+        <div class="nav-brand">
+            <a href="#top" class="brand-link">väckelse</a>
+            <span class="brand-tag">#vackelse</span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="#syfte" data-key="nav_syfte">Syfte</a>
+            <a href="#blogg" data-key="nav_blogg">Blogg</a>
+            <a href="#bibelord" data-key="nav_bibelord">Bibelord</a>
+            <a href="#om" data-key="nav_om">Om oss</a>
+        </div>
+        <div class="nav-controls">
+            <button class="btn-ctrl" id="langBtn" onclick="toggleLang()">EN</button>
+            <button class="btn-ctrl" id="themeBtn" onclick="toggleTheme()" title="Invertera">◑</button>
+            <button class="btn-ctrl btn-menu-icon" id="menuBtn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <div class="hero-inner">
+            <h1 id="heroTitle" class="hero-title">väckelse</h1>
+            <p class="hero-sub" id="heroSub">Berättar vad Gud gör i Sverige nu</p>
+            <p class="hero-kingdom" id="heroKingdom">Hans rike komme</p>
+        </div>
+        <a href="#agent" class="hero-arrow" aria-label="Scrolla ner">▼</a>
+    </section>
+
+    <!-- AI AGENT -->
+    <section id="agent" class="section">
+        <h2 class="section-h" id="agentTitle">_ väckelse-spaning</h2>
+        <p class="section-lead" id="agentLead">
+            En AI-agent söker nätet efter rapporter om väckelse i Sverige och världen.
+        </p>
+        <div class="agent-bar">
+            <button class="btn-main" id="searchBtn" onclick="runAgent()">
+                <span id="searchBtnText">Starta sökning</span>
+            </button>
+            <span class="agent-status" id="agentStatus"></span>
+        </div>
+        <div id="agentResults" class="agent-results"></div>
+        <div class="devlog-wrap">
+            <details>
+                <summary id="devlogLabel">_ agentlogg — vad har testats</summary>
+                <div id="devlogContent" class="devlog-body"></div>
+            </details>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blogg" class="section">
+        <h2 class="section-h" id="bloggTitle">_ blogg</h2>
+        <div id="blogPosts"></div>
+    </section>
+
+    <!-- PURPOSE -->
+    <section id="syfte" class="section">
+        <h2 class="section-h" id="syfteTitle">_ syfte</h2>
+        <div class="purpose-grid">
+            <div class="purpose-text">
+                <h3 id="syfteH3">Vad är vackelse.nu?</h3>
+                <p id="syfteP1">Att kommunicera vad Gud gör i Sverige just nu.</p>
+                <p id="syfteP2">Hans rike komme.</p>
+                <p id="syfteP3">
+                    Vi berättar om väckelse — lokalt och globalt — med tro på att Gud handlar i vår tid.
+                    Vågar experimentera och leka med den Helige Ande. Det är OK att misslyckas, men vi
+                    dokumenterar allt vi gör för att lära oss.
+                </p>
+            </div>
+            <div class="purpose-quote">
+                <blockquote>
+                    <p id="purposeVerse">"Omvänd er, för himmelriket är nära."</p>
+                    <cite>— Matteus 4:17</cite>
+                </blockquote>
+                <blockquote>
+                    <p id="purposeVerse2">"Så ber du: Fader vår..."</p>
+                    <cite>— Matteus 6:9</cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- BIBLE VERSES -->
+    <section id="bibelord" class="section">
+        <h2 class="section-h" id="bibelordTitle">_ bibelord</h2>
+        <p class="section-lead" id="bibelordLead">Skrifter som pekar på väckelse, Guds rike och den Helige Ande.</p>
+        <div id="verseList" class="verse-list"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="om" class="section">
+        <h2 class="section-h" id="omTitle">_ om oss</h2>
+        <div class="about-body">
+            <p id="omP1">vackelse.nu är ett projekt som vill dokumentera och kommunicera vad Gud gör i Sverige idag.</p>
+            <p id="omP2">
+                Vi vågar experimentera och leka med den Helige Ande. Det är OK att misslyckas —
+                men vi dokumenterar vad som görs så att vi kan lära oss av misstagen.
+            </p>
+            <p id="omP3">
+                <span data-key="contact">Kontakt:</span>
+                <a href="mailto:info@vackelse.nu">info@vackelse.nu</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>väckelse — #vackelse</span>
+            <span id="footerYear">2024</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
