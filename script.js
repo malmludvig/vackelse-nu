@@ -364,9 +364,6 @@ function applyLang() {
     renderBlog();
     renderVerses();
 
-    // Re-render agent results if visible
-    const res = document.getElementById('agentResults');
-    if (res.children.length > 0 && !agentRunning) renderMockResults();
 }
 
 function renderBlog() {
@@ -432,35 +429,37 @@ async function runAgent() {
     btn.disabled = true;
     document.getElementById('searchBtnText').textContent = t.agentSearching;
     status.textContent = t.agentSearching;
-    results.innerHTML  = `<div class="agent-status" style="margin:1.2rem 0 0.5rem">_ ${lang === 'sv' ? 'söker efter väckelse...' : 'searching for revival...'}</div>`;
+    results.innerHTML  = `<div class="agent-status" style="margin:1.2rem 0 0.5rem">_ ${lang === 'sv' ? 'hämtar senaste resultat...' : 'fetching latest results...'}</div>`;
 
-    // Attempt real fetch — expected to fail on static hosting; failure is documented
-    let fetchFailed = false;
     try {
-        const proxy = 'https://api.allorigins.win/get?url=';
-        const feed  = encodeURIComponent('https://www.dagen.se/rss');
-        const res   = await fetch(proxy + feed, { signal: AbortSignal.timeout(3500) });
+        const res = await fetch('/data/results.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        // If we reach here, parse RSS — for now fall through to mock
+        const data = await res.json();
+
+        if (!data.items || data.items.length === 0) {
+            results.innerHTML = `<div class="result-note">${lang === 'sv' ? 'Inga resultat ännu — kör agenten via GitHub Actions.' : 'No results yet — run the agent via GitHub Actions.'}</div>`;
+        } else {
+            const updated = data.lastUpdated
+                ? new Date(data.lastUpdated).toLocaleString(lang === 'sv' ? 'sv-SE' : 'en-GB')
+                : '—';
+            results.innerHTML = data.items.map(r => `
+                <div class="result-card">
+                    <span class="result-source">${r.source || ''} — ${r.date || ''}</span>
+                    <div class="result-title"><a href="${r.url || '#'}" target="_blank" rel="noopener">${r.title}</a></div>
+                    <div class="result-excerpt">${r.summary}</div>
+                </div>
+            `).join('') + `<div class="result-note">_ ${lang === 'sv' ? 'uppdaterad' : 'updated'}: ${updated}</div>`;
+        }
+
+        status.textContent = t.agentDone;
     } catch (e) {
-        fetchFailed = true;
-        LOG.push({
-            type: 'fail',
-            ts: new Date().toISOString().slice(0, 16).replace('T', ' '),
-            msg: `[Live-körning] Fetch misslyckades: ${e.message} — visar mock-data`
-        });
-        renderDevLog();
+        results.innerHTML = `<div class="result-note">${lang === 'sv' ? 'Fel vid hämtning — försök igen.' : 'Fetch error — try again.'}</div>`;
+        status.textContent = t.agentError;
     }
-
-    // Simulate realistic search delay
-    await new Promise(r => setTimeout(r, fetchFailed ? 400 : 800));
-
-    renderMockResults();
 
     agentRunning = false;
     btn.disabled = false;
     document.getElementById('searchBtnText').textContent = t.agentBtnAgain;
-    status.textContent = t.agentDone;
 }
 
 // ── CONTROLS ──────────────────────────────────────────────────────────────
