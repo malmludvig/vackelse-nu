@@ -316,7 +316,6 @@ function applyLang() {
     // Om
     document.getElementById('omTitle').textContent = t.omTitle;
     document.getElementById('omP1').textContent    = t.omP1;
-    document.getElementById('omP2').textContent    = t.omP2;
 
     renderBlog();
     renderVerses();
