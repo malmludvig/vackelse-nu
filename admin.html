@@ -102,7 +102,7 @@
             <div class="step"><span class="step-num">2.</span><span>En Node.js-process startar på GitHubs servrar och skickar en förfrågan till OpenAIs API (modell: <strong>gpt-4o</strong>).</span></div>
             <div class="step"><span class="step-num">3.</span><span>GPT-4o använder verktyget <strong>web_search_preview</strong> för att söka på internet i realtid.</span></div>
             <div class="step"><span class="step-num">4.</span><span>Svaret parsas som JSON och sparas i <code>data/results.json</code> (senaste sökning) och läggs till i <code>data/history.json</code> (historik).</span></div>
-            <div class="step"><span class="step-num">5.</span><span>Hemsidan uppdateras.</span></div>
+            <div class="step"><span class="step-num">5.</span><span>GitHub Actions committar och pushar filerna till repot. Hemsidan läser dem direkt — ingen backend behövs. Hemsidan uppdateras.</span></div>
 
             <h3>Prompt till GPT-4o</h3>
             <div class="prompt-box">Sök på internet efter nyheter och rapporter om kristen väckelse från de senaste 180 dagarna.
