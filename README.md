@@ -1,6 +1,6 @@
 # väckelse.nu
 
-Berättar vad Gud gör i Sverige nu. Hans rike komma.
+Berättar vad Gud gör i Sverige nu. Hans rike komma. 🔥
 
 ## Vad är det här?
 
