@@ -473,6 +473,7 @@ async function loadResults() {
                 <span class="result-source">${r.source || ''} — ${r.date || ''}</span>
                 <div class="result-title"><a href="${r.url || '#'}" target="_blank" rel="noopener">${r.title}</a></div>
                 <div class="result-excerpt">${r.summary}</div>
+                ${r.url ? `<div class="result-url"><a href="${r.url}" target="_blank" rel="noopener">${r.url}</a></div>` : ''}
             </div>
         `).join('') + `<div class="result-note">_ ${lang === 'sv' ? 'uppdaterad' : 'updated'}: ${updated}</div>`;
         status.textContent = t.agentDone;

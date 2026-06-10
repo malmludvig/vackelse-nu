@@ -232,6 +232,10 @@ a:hover { text-decoration: underline; }
 
 .result-excerpt { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
 
+.result-url { margin-top: 0.4rem; font-size: 0.72rem; color: var(--muted); overflow-wrap: break-word; word-break: break-all; }
+.result-url a { color: var(--muted); text-decoration: underline; }
+.result-card:hover .result-url a { color: var(--bg); }
+
 .result-note {
     margin-top: 1.2rem;
     font-size: 0.78rem;
