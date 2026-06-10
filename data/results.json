@@ -1,26 +1,40 @@
 {
-  "lastUpdated": "2026-06-10T13:10:58.597Z",
+  "lastUpdated": "2026-06-10T13:11:36.949Z",
   "items": [
     {
-      "title": "Kristen Media Sverige lanserar ny medieplattform för att sprida evangeliet",
-      "summary": "Kristen Media Sverige har lanserat en ny medieplattform som kombinerar TV, streaming och tidningsjournalistik för att sprida kristna värderingar och budskap om hopp och tro till en bred publik.",
-      "url": "https://kristenmediasverige.se/",
-      "source": "Kristen Media Sverige",
-      "date": "2026-05-15"
+      "title": "Biskopen vädjar: Säg nej till barnfängelser",
+      "summary": "Biskop Andreas Holmberg i Stockholms stift uppmanar till protester mot regeringens planer på att sänka straffbarhetsåldern och införa fängelsestraff för 13-åringar. Svenska kyrkan är en av organisationerna bakom manifestationerna som planeras över hela landet.",
+      "url": "https://www.gp.se/nyheter/sverige/biskopen-vadjar-sag-nej-till-barnfangelser.1ef879d1-ea74-5343-a6ac-2e3e968f759e",
+      "source": "Göteborgs-Posten",
+      "date": "2026-04-13"
     },
     {
-      "title": "Världen idag lanserar ny app för att nå fler läsare",
-      "summary": "Den kristna nyhetstidningen Världen idag har lanserat en ny app som ger snabb och enkel tillgång till tidningens innehåll, inklusive upplästa artiklar, för att nå ut till fler läsare med nyheter från både kyrka och samhälle.",
-      "url": "https://play.google.com/store/apps/details?hl=sv&id=com.prenly.varlden_idag",
-      "source": "Google Play",
-      "date": "2025-11-20"
+      "title": "Ansvarig minister om rysk-ortodoxa kyrkan i Västerås: 'En känslig fråga'",
+      "summary": "Infrastrukturminister Andreas Carlson kommenterar Västerås stads begäran om att tvångsöverta den rysk-ortodoxa kyrkan vid flygplatsen, med hänvisning till säkerhetsrisker och utrikessekretess. Regeringen bereder fortfarande ärendet utan att ge besked om när ett beslut kan fattas.",
+      "url": "https://www.svt.se/nyheter/lokalt/vastmanland/ej-klar-avsvarig-minister-om-rysk-ortodoxa-kyrkan-i-vasteras-en-kanslig-fraga",
+      "source": "SVT Nyheter",
+      "date": "2026-05-23"
     },
     {
-      "title": "Bokrecension: 'Maranata! : väckelse och samhällsförändring 1960-tal till 1990-tal'",
-      "summary": "En recension av Torbjörn Aronsons bok som skildrar Maranatarörelsens framväxt och påverkan på det svenska samhället under 1960- till 1990-talet, med fokus på dess ledare och användning av populärkulturella uttrycksformer.",
-      "url": "https://www.bokus.com/bok/9789198695540/maranata-vackelse-och-samhallsforandring-1960-tal-till-1990-tal/",
-      "source": "Bokus",
-      "date": "2021-08-18"
+      "title": "Jesustrenden lämnar oss med ett stort ansvar",
+      "summary": "Krönikören Robert Tjernberg reflekterar över att den så kallade 'Jesustrenden' bland unga är över och betonar vikten av att kyrkan nu tar ansvar för att forma framtidens väckelse och möta den andliga hungern i samhället.",
+      "url": "https://www.kyrkanstidning.se/kroenika/jesustrenden-laemnar-oss-med-ett-stort-ansvar-1/425237",
+      "source": "Kyrkans Tidning",
+      "date": "2026-01-16"
+    },
+    {
+      "title": "Katolska kyrkan växer i Sverige – unga lockas",
+      "summary": "Intresset för den katolska kyrkan ökar i Sverige, med över 19 400 nya medlemmar på tio år. Ökningen beror främst på invandring från katolska länder, men även unga svenskar visar ökat intresse och konverterar.",
+      "url": "https://www.svd.se/a/qPPRGE/katolska-kyrkan-vaxer-i-sverige-unga-lockas",
+      "source": "Svenska Dagbladet",
+      "date": "2024-07-14"
+    },
+    {
+      "title": "Svenskamerikan ska rusta kristna inför Jesustrend",
+      "summary": "Pastorn Dan Johnson från Florida initierar 'Jesus Camps' i Sverige för att träna unga ledare i evangelisation, som en del av förberedelserna för en förväntad väckelse i landet.",
+      "url": "https://www.varldenidag.se/nyheter/svenskamerikan-ska-rusta-kristna-infor-jesustrend/835315",
+      "source": "Världen idag",
+      "date": "2025-01-09"
     }
   ]
 }
