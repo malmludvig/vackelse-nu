@@ -19,9 +19,7 @@ const T = {
         agentBtnAgain:'Sök igen',
         agentSearching:'söker...',
         agentDone:    'sökning klar',
-        agentError:   'fel — se logg',
-        devlogLabel:  '_ agentlogg — vad har testats',
-        mockNote:     '* Visar simulerade resultat. Se loggen nedan för vad som testats och nästa steg.',
+        agentError:   'fel — försök igen',
 
         bloggTitle:   '_ blogg',
         syfteTitle:   '_ syfte',
@@ -57,9 +55,7 @@ const T = {
         agentBtnAgain:'Search again',
         agentSearching:'searching...',
         agentDone:    'search complete',
-        agentError:   'error — see log',
-        devlogLabel:  '_ agent log — what has been tried',
-        mockNote:     '* Showing simulated results. See the log below for what was tried and next steps.',
+        agentError:   'error — try again',
 
         bloggTitle:   '_ blog',
         syfteTitle:   '_ purpose',
@@ -258,24 +254,6 @@ const VERSES = [
     }
 ];
 
-// ── AGENT LOG ─────────────────────────────────────────────────────────────
-// Documents every experiment — OK to fail, important to learn.
-const LOG = [
-    { type: 'info', ts: '2024-01-15 09:00', msg: '[Experiment 1] Försöker hämta RSS från dagen.se direkt via fetch()' },
-    { type: 'fail', ts: '2024-01-15 09:01', msg: 'BLOCKERAT: CORS-policy på dagen.se tillåter inte cross-origin requests från browser' },
-    { type: 'info', ts: '2024-01-15 09:15', msg: '[Experiment 2] Försöker via CORS-proxy allorigins.win: fetch(allorigins + dagen.se/rss)' },
-    { type: 'fail', ts: '2024-01-15 09:17', msg: 'TIMEOUT: allorigins.win svarar inte på dessa RSS-feeds konsekvent' },
-    { type: 'info', ts: '2024-01-15 09:30', msg: '[Experiment 3] DuckDuckGo Instant Answer API för "väckelse Sverige"' },
-    { type: 'fail', ts: '2024-01-15 09:31', msg: 'EJ NYHETER: DDG API returnerar Wikipedia-sammanfattningar, inte aktuella nyheter' },
-    { type: 'info', ts: '2024-01-15 10:00', msg: '[Experiment 4] rss2json.com gratis-tier för dagen.se + varldenidag.se' },
-    { type: 'fail', ts: '2024-01-15 10:02', msg: 'KRÄVER API-nyckel för produktion — gratis tier är rate-limitad och opålitlig' },
-    { type: 'info', ts: '2024-01-15 10:30', msg: '[Nuvarande lösning] Mock-data med realistiska nyheter — agent-UI fungerar, data är simulerad' },
-    { type: 'ok',   ts: '2024-01-15 10:31', msg: 'Mock-agent live — visar UI-flödet korrekt, dokumenterar fel i realtid' },
-    { type: 'todo', ts: '—', msg: '[TODO] Bygg Node.js/Deno backend som scrapar: dagen.se, varldenidag.se, evangeliiherald.se' },
-    { type: 'todo', ts: '—', msg: '[TODO] Koppla Claude API för att summera och kategorisera inlägg om väckelse' },
-    { type: 'todo', ts: '—', msg: '[TODO] Cachelagra i JSON-fil — uppdatera 1 gång/timme via cron' },
-    { type: 'todo', ts: '—', msg: '[TODO] NewsAPI.org har nyckel-baserat API med gratis tier — värt att testa' },
-];
 
 // ── MOCK SEARCH RESULTS ───────────────────────────────────────────────────
 const MOCK_RESULTS = [
@@ -396,11 +374,6 @@ function renderVerses() {
     }).join('');
 }
 
-function renderDevLog() {
-    document.getElementById('devlogContent').innerHTML = LOG.map(e =>
-        `<span class="log-line ${e.type}">[${e.ts}] ${e.msg}</span>`
-    ).join('');
-}
 
 function renderMockResults() {
     const t = T[lang];
@@ -510,6 +483,5 @@ async function loadResults() {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('footerYear').textContent = new Date().getFullYear();
     applyLang();
-    renderDevLog();
     loadResults();
 });
