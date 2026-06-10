@@ -83,24 +83,6 @@ const T = {
 // ── BLOG POSTS ────────────────────────────────────────────────────────────
 const POSTS = [
     {
-        date:    '2024-01-20',
-        dateSv:  '20 januari 2024',
-        dateEn:  'January 20, 2024',
-        titleSv: 'Bönerörelse i Göteborg',
-        titleEn: 'Prayer movement in Gothenburg',
-        bodySv:  `I Göteborg samlas ungdomar varje torsdag för bön. Inga program, ingen agenda — bara tillbedjan och bön för Sverige.
-
-Möten som börjat med tio personer har vuxit till hundratals. Det är något på gång.
-
-"Hans rike komma, Hans vilja ske — på jorden som i himlen."`,
-        bodyEn:  `In Gothenburg, young people gather every Thursday for prayer. No program, no agenda — just worship and prayer for Sweden.
-
-Meetings that started with ten people have grown to hundreds. Something is happening.
-
-"His kingdom come, His will be done — on earth as it is in heaven."`,
-        tags: ['#bön', '#göteborg', '#ungdomar']
-    },
-    {
         date:    '2024-01-15',
         dateSv:  '15 januari 2024',
         dateEn:  'January 15, 2024',
@@ -117,6 +99,24 @@ We believe God speaks. We believe He acts. And we want to capture it.
 
 The Holy Spirit is moving. Come along.`,
         tags: ['#vackelse', '#välkommen', '#helige_ande']
+    },
+    {
+        date:    '2024-01-20',
+        dateSv:  '20 januari 2024',
+        dateEn:  'January 20, 2024',
+        titleSv: 'Bönerörelse i Göteborg',
+        titleEn: 'Prayer movement in Gothenburg',
+        bodySv:  `I Göteborg samlas ungdomar varje torsdag för bön. Inga program, ingen agenda — bara tillbedjan och bön för Sverige.
+
+Möten som börjat med tio personer har vuxit till hundratals. Det är något på gång.
+
+"Hans rike komma, Hans vilja ske — på jorden som i himlen."`,
+        bodyEn:  `In Gothenburg, young people gather every Thursday for prayer. No program, no agenda — just worship and prayer for Sweden.
+
+Meetings that started with ten people have grown to hundreds. Something is happening.
+
+"His kingdom come, His will be done — on earth as it is in heaven."`,
+        tags: ['#bön', '#göteborg', '#ungdomar']
     }
 ];
 
