@@ -24,7 +24,7 @@ const response = await client.responses.create({
     input: `Sök på internet efter nyheter och rapporter om kristen väckelse från de senaste 180 dagarna.
 Prioritera starkt nyheter från Sverige och saker som händer i Sverige — lokala väckelserörelser, bönrörelser, omvändelser, konferenser och andliga genombrott.
 Inkludera även globala nyheter om väckelse om inga svenska nyheter finns, men Sverige har alltid högst prioritet.
-Hitta 3–5 relevanta artiklar eller rapporter.${seenSection}
+Hitta 3–5 relevanta artiklar eller rapporter. Sök gärna på varldenidag.se och dagen.se .${seenSection}
 
 Svara ENBART med ett JSON-objekt i exakt detta format — ingen förklarande text runt om:
 {
