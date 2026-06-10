@@ -27,7 +27,7 @@ const T = {
         syfteTitle:   '_ syfte',
         syfteH3:      'Vad är vackelse.nu?',
         syfteP1:      'Att kommunicera vad Gud gör i Sverige just nu.',
-        syfteP2:      'Hans rike komme.',
+        syfteP2:      'Hans rike komma.',
         syfteP3:      'Vi berättar om väckelse — lokalt och globalt — med tro på att Gud handlar i vår tid. Vågar experimentera och leka med den Helige Ande. Det är OK att misslyckas, men vi dokumenterar allt.',
         purposeVerse: '"Omvänd er, för himmelriket är nära."',
         purposeVerse2:'"Be alltså så: Fader vår, du som är i himlen..."',
@@ -40,7 +40,7 @@ const T = {
         omP2:         'Vi vågar experimentera och leka med den Helige Ande. Det är OK att misslyckas — men vi dokumenterar vad som görs så att vi kan lära oss av misstagen.',
 
         heroSub:      'Berättar vad Gud gör i Sverige nu',
-        heroKingdom:  'Hans rike komme',
+        heroKingdom:  'Hans rike komma',
 
         langBtn:      'EN',
     },
@@ -96,7 +96,7 @@ const POSTS = [
 
 Möten som börjat med tio personer har vuxit till hundratals. Det är något på gång.
 
-"Hans rike komme, Hans vilja ske — på jorden som i himlen."`,
+"Hans rike komma, Hans vilja ske — på jorden som i himlen."`,
         bodyEn:  `In Gothenburg, young people gather every Thursday for prayer. No program, no agenda — just worship and prayer for Sweden.
 
 Meetings that started with ten people have grown to hundreds. Something is happening.
@@ -300,7 +300,7 @@ const MOCK_RESULTS = [
     {
         source: 'Världen idag',
         date:   '2024-01-10',
-        titleSv: 'Hans rike komme — konferens lockar 3 000 besökare',
+        titleSv: 'Hans rike komma — konferens lockar 3 000 besökare',
         titleEn: 'His Kingdom Come — conference draws 3,000 visitors',
         excerptSv: 'En oväntad rörelse bland unga i Örebro har spridit sig till grannskapet. Kyrkor av alla traditioner samlas nu för gemensam bön för Sverige.',
         excerptEn: 'An unexpected movement among young people in Örebro has spread to the surrounding area. Churches of all traditions now gather in joint prayer for Sweden.',
