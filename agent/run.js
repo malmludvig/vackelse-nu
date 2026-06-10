@@ -11,8 +11,10 @@ console.log('Söker efter väckelse-nyheter...');
 const response = await client.responses.create({
     model: 'gpt-4o',
     tools: [{ type: 'web_search_preview' }],
-    input: `Sök på internet efter aktuella nyheter och rapporter om kristen väckelse i Sverige och globalt.
-Hitta 3–5 relevanta artiklar eller rapporter från de senaste 60 dagarna.
+    input: `Sök på internet efter nyheter och rapporter om kristen väckelse från de senaste 180 dagarna.
+Prioritera starkt nyheter från Sverige och saker som händer i Sverige — lokala väckelserörelser, bönrörelser, omvändelser, konferenser och andliga genombrott.
+Inkludera även globala nyheter om väckelse om inga svenska nyheter finns, men Sverige har alltid högst prioritet.
+Hitta 3–5 relevanta artiklar eller rapporter.
 
 Svara ENBART med ett JSON-objekt i exakt detta format — ingen förklarande text runt om:
 {
