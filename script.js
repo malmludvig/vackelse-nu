@@ -35,7 +35,7 @@ const T = {
 
         omTitle:      '_ om oss',
         omP1:         'vackelse.nu är ett projekt som vill dokumentera och kommunicera vad Gud gör i Sverige idag.',
-        omP2:         'Vi vågar experimentera och leka med den Helige Ande. Det är OK att misslyckas — men vi dokumenterar vad som görs så att vi kan lära oss av misstagen.',
+        omP2:         '',
 
         heroSub:      'Berättar vad Gud gör i Sverige nu',
         heroKingdom:  'Hans rike komma',
@@ -71,7 +71,7 @@ const T = {
 
         omTitle:      '_ about us',
         omP1:         'vackelse.nu is a project aiming to document and communicate what God is doing in Sweden today.',
-        omP2:         'We dare to experiment and play with the Holy Spirit. It\'s OK to fail — but we document what is done so we can learn from our mistakes.',
+        omP2:         '',
 
         heroSub:      'Reporting what God is doing in Sweden now',
         heroKingdom:  'His Kingdom Come',
