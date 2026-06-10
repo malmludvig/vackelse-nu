@@ -483,8 +483,33 @@ function toggleVerse(i) {
 
 // ── INIT ──────────────────────────────────────────────────────────────────
 
+async function loadResults() {
+    const results = document.getElementById('agentResults');
+    const status  = document.getElementById('agentStatus');
+    const t       = T[lang];
+    try {
+        const res  = await fetch('/data/results.json');
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        if (!data.items || data.items.length === 0) return;
+        const updated = data.lastUpdated
+            ? new Date(data.lastUpdated).toLocaleString(lang === 'sv' ? 'sv-SE' : 'en-GB')
+            : '—';
+        results.innerHTML = data.items.map(r => `
+            <div class="result-card">
+                <span class="result-source">${r.source || ''} — ${r.date || ''}</span>
+                <div class="result-title"><a href="${r.url || '#'}" target="_blank" rel="noopener">${r.title}</a></div>
+                <div class="result-excerpt">${r.summary}</div>
+            </div>
+        `).join('') + `<div class="result-note">_ ${lang === 'sv' ? 'uppdaterad' : 'updated'}: ${updated}</div>`;
+        status.textContent = t.agentDone;
+        document.getElementById('searchBtnText').textContent = t.agentBtnAgain;
+    } catch (_) {}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('footerYear').textContent = new Date().getFullYear();
     applyLang();
     renderDevLog();
+    loadResults();
 });
