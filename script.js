@@ -2,7 +2,6 @@
 
 // ── STATE ─────────────────────────────────────────────────────────────────
 let lang = 'sv';
-let agentRunning = false;
 
 // ── TRANSLATIONS ──────────────────────────────────────────────────────────
 const T = {
@@ -13,13 +12,6 @@ const T = {
         nav_om:       'Om oss',
         contact:      'Kontakt:',
 
-        agentTitle:   '_ väckelse-spaning',
-        agentLead:    'En AI-agent söker nätet efter rapporter om väckelse i Sverige och världen.',
-        agentBtnStart:'Starta sökning',
-        agentBtnAgain:'Sök igen',
-        agentSearching:'söker...',
-        agentDone:    'sökning klar',
-        agentError:   'fel — försök igen',
 
         bloggTitle:   '_ blogg',
         syfteTitle:   '_ syfte',
@@ -49,13 +41,6 @@ const T = {
         nav_om:       'About',
         contact:      'Contact:',
 
-        agentTitle:   '_ revival watch',
-        agentLead:    'An AI agent searches the web for reports of revival in Sweden and the world.',
-        agentBtnStart:'Start search',
-        agentBtnAgain:'Search again',
-        agentSearching:'searching...',
-        agentDone:    'search complete',
-        agentError:   'error — try again',
 
         bloggTitle:   '_ blog',
         syfteTitle:   '_ purpose',
@@ -255,7 +240,7 @@ const VERSES = [
 ];
 
 
-// ── MOCK SEARCH RESULTS ───────────────────────────────────────────────────
+// ── MOCK SEARCH RESULTS (unused) ─────────────────────────────────────────
 const MOCK_RESULTS = [
     {
         source: 'Dagen.se',
@@ -369,65 +354,6 @@ function renderVerses() {
 }
 
 
-function renderMockResults() {
-    const t = T[lang];
-    document.getElementById('agentResults').innerHTML =
-        MOCK_RESULTS.map(r => `
-            <div class="result-card">
-                <span class="result-source">${r.source} — ${r.date}</span>
-                <div class="result-title"><a href="${r.url}">${lang === 'sv' ? r.titleSv : r.titleEn}</a></div>
-                <div class="result-excerpt">${lang === 'sv' ? r.excerptSv : r.excerptEn}</div>
-            </div>
-        `).join('') +
-        `<div class="result-note">${t.mockNote}</div>`;
-}
-
-// ── AGENT ─────────────────────────────────────────────────────────────────
-
-async function runAgent() {
-    if (agentRunning) return;
-    agentRunning = true;
-
-    const btn    = document.getElementById('searchBtn');
-    const status = document.getElementById('agentStatus');
-    const results= document.getElementById('agentResults');
-    const t      = T[lang];
-
-    btn.disabled = true;
-    document.getElementById('searchBtnText').textContent = t.agentSearching;
-    status.textContent = t.agentSearching;
-    results.innerHTML  = `<div class="agent-status" style="margin:1.2rem 0 0.5rem">_ ${lang === 'sv' ? 'hämtar senaste resultat...' : 'fetching latest results...'}</div>`;
-
-    try {
-        const res = await fetch('/data/results.json');
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-
-        if (!data.items || data.items.length === 0) {
-            results.innerHTML = `<div class="result-note">${lang === 'sv' ? 'Inga resultat ännu — kör agenten via GitHub Actions.' : 'No results yet — run the agent via GitHub Actions.'}</div>`;
-        } else {
-            const updated = data.lastUpdated
-                ? new Date(data.lastUpdated).toLocaleString(lang === 'sv' ? 'sv-SE' : 'en-GB')
-                : '—';
-            results.innerHTML = data.items.map(r => `
-                <div class="result-card">
-                    <span class="result-source">${r.source || ''} — ${r.date || ''}</span>
-                    <div class="result-title"><a href="${r.url || '#'}" target="_blank" rel="noopener">${r.title}</a></div>
-                    <div class="result-excerpt">${r.summary}</div>
-                </div>
-            `).join('') + `<div class="result-note">_ ${lang === 'sv' ? 'uppdaterad' : 'updated'}: ${updated}</div>`;
-        }
-
-        status.textContent = t.agentDone;
-    } catch (e) {
-        results.innerHTML = `<div class="result-note">${lang === 'sv' ? 'Fel vid hämtning — försök igen.' : 'Fetch error — try again.'}</div>`;
-        status.textContent = t.agentError;
-    }
-
-    agentRunning = false;
-    btn.disabled = false;
-    document.getElementById('searchBtnText').textContent = t.agentBtnAgain;
-}
 
 // ── CONTROLS ──────────────────────────────────────────────────────────────
 
@@ -450,33 +376,7 @@ function toggleVerse(i) {
 
 // ── INIT ──────────────────────────────────────────────────────────────────
 
-async function loadResults() {
-    const results = document.getElementById('agentResults');
-    const status  = document.getElementById('agentStatus');
-    const t       = T[lang];
-    try {
-        const res  = await fetch('/data/results.json');
-        if (!res.ok) throw new Error();
-        const data = await res.json();
-        if (!data.items || data.items.length === 0) return;
-        const updated = data.lastUpdated
-            ? new Date(data.lastUpdated).toLocaleString(lang === 'sv' ? 'sv-SE' : 'en-GB')
-            : '—';
-        results.innerHTML = data.items.map(r => `
-            <div class="result-card">
-                <span class="result-source">${r.source || ''} — ${r.date || ''}</span>
-                <div class="result-title"><a href="${r.url || '#'}" target="_blank" rel="noopener">${r.title}</a></div>
-                <div class="result-excerpt">${r.summary}</div>
-                ${r.url ? `<div class="result-url"><a href="${r.url}" target="_blank" rel="noopener">${r.url}</a></div>` : ''}
-            </div>
-        `).join('') + `<div class="result-note">_ ${lang === 'sv' ? 'uppdaterad' : 'updated'}: ${updated}</div>`;
-        status.textContent = t.agentDone;
-        document.getElementById('searchBtnText').textContent = t.agentBtnAgain;
-    } catch (_) {}
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('footerYear').textContent = new Date().getFullYear();
     applyLang();
-    loadResults();
 });
