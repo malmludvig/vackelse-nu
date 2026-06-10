@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin — väckelse</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav id="nav">
+        <div class="nav-brand">
+            <a href="index.html" class="brand-link">väckelse</a>
+            <span class="brand-tag">_ admin</span>
+        </div>
+        <div class="nav-controls">
+            <button class="btn-ctrl" onclick="toggleTheme()" title="Invertera">◑</button>
+        </div>
+    </nav>
+
+    <main style="max-width:760px;margin:0 auto;padding:7rem 2rem 5rem;">
+        <h1 class="section-h" style="font-size:1.25rem;margin-bottom:0.5rem;">_ sökning historik</h1>
+        <p class="section-lead" id="adminLead">Laddar historik...</p>
+        <div id="historyList"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>väckelse — admin</span>
+            <a href="index.html">← tillbaka till hemsidan</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('inverted');
+        }
+
+        async function loadHistory() {
+            const lead = document.getElementById('adminLead');
+            const list = document.getElementById('historyList');
+            try {
+                const res = await fetch('/data/history.json');
+                if (!res.ok) throw new Error();
+                const history = await res.json();
+
+                if (history.length === 0) {
+                    lead.textContent = 'Inga sökningar sparade ännu — kör agenten via GitHub Actions.';
+                    return;
+                }
+
+                lead.textContent = `${history.length} körning${history.length !== 1 ? 'ar' : ''} sparad${history.length !== 1 ? 'e' : ''}.`;
+
+                list.innerHTML = history.map((run, i) => {
+                    const ts = run.lastUpdated
+                        ? new Date(run.lastUpdated).toLocaleString('sv-SE')
+                        : '—';
+                    const items = (run.items || []).map(r => `
+                        <div class="result-card">
+                            <span class="result-source">${r.source || ''} — ${r.date || ''}</span>
+                            <div class="result-title"><a href="${r.url || '#'}" target="_blank" rel="noopener">${r.title}</a></div>
+                            <div class="result-excerpt">${r.summary}</div>
+                        </div>
+                    `).join('');
+
+                    return `
+                        <details ${i === 0 ? 'open' : ''} style="margin-bottom:-1px;">
+                            <summary style="
+                                padding:0.8rem 1rem;
+                                border:1px solid var(--border);
+                                cursor:pointer;
+                                font-size:0.88rem;
+                                letter-spacing:0.04em;
+                                list-style:none;
+                                display:flex;
+                                justify-content:space-between;
+                                align-items:center;
+                                background:var(--bg);
+                                transition:background 0.25s ease,color 0.25s ease;
+                            "
+                            onmouseover="this.style.background='var(--text)';this.style.color='var(--bg)'"
+                            onmouseout="this.closest('details').open || (this.style.background='',this.style.color='')">
+                                <span>_ körning ${history.length - i} &nbsp;—&nbsp; ${ts}</span>
+                                <span style="font-size:0.72rem;opacity:0.6">${run.items?.length || 0} resultat</span>
+                            </summary>
+                            <div style="padding:1rem 0 0.5rem;">${items}</div>
+                        </details>
+                    `;
+                }).join('');
+            } catch (_) {
+                lead.textContent = 'Kunde inte ladda historik.';
+            }
+        }
+
+        loadHistory();
+    </script>
+</body>
+</html>

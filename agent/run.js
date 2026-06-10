@@ -1,5 +1,5 @@
 import OpenAI from 'openai';
-import { writeFileSync } from 'fs';
+import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -50,3 +50,11 @@ const output = {
 const outPath = join(__dirname, '..', 'data', 'results.json');
 writeFileSync(outPath, JSON.stringify(output, null, 2));
 console.log(`Skrev ${output.items.length} resultat till ${outPath}`);
+
+const historyPath = join(__dirname, '..', 'data', 'history.json');
+const history = existsSync(historyPath)
+    ? JSON.parse(readFileSync(historyPath, 'utf8'))
+    : [];
+history.unshift(output);
+writeFileSync(historyPath, JSON.stringify(history, null, 2));
+console.log(`Historik: ${history.length} körningar sparade`);
