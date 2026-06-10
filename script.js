@@ -312,12 +312,6 @@ function applyLang() {
     document.getElementById('heroSub').textContent      = t.heroSub;
     document.getElementById('heroKingdom').textContent  = t.heroKingdom;
 
-    // Agent
-    document.getElementById('agentTitle').textContent   = t.agentTitle;
-    document.getElementById('agentLead').textContent    = t.agentLead;
-    document.getElementById('searchBtnText').textContent = agentRunning ? t.agentSearching : t.agentBtnStart;
-    document.getElementById('devlogLabel').textContent  = t.devlogLabel;
-
     // Blog
     document.getElementById('bloggTitle').textContent   = t.bloggTitle;
 
