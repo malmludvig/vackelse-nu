@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-10T12:33:48.561Z",
+  "lastUpdated": "2026-06-10T12:41:42.179Z",
   "items": [
     {
       "title": "Den märkliga väckelsen i Sverige på 1800-talet",
@@ -9,18 +9,18 @@
       "date": "2026-04-16"
     },
     {
-      "title": "Maranata! : väckelse och samhällsförändring 1960-tal till 1990-tal",
-      "summary": "Boken av Torbjörn Aronson skildrar Maranatarörelsens framväxt i Sverige från 1960-talet till 1990-talet, dess ledare och dess påverkan på samhället genom nya populärkulturella uttrycksformer och stark medienärvaro.",
-      "url": "https://www.bokus.com/bok/9789198695540/maranata-vackelse-och-samhallsforandring-1960-tal-till-1990-tal/",
-      "source": "Bokus",
-      "date": "2021-08-18"
-    },
-    {
       "title": "Väckelse med extas på mötena",
-      "summary": "Artikeln från 2002 beskriver Maranatarörelsens historia i Sverige, dess ursprung från Norge 1958 och dess utveckling under 1960-talet med fokus på extatiska sammankomster och aktioner mot pornografi.",
+      "summary": "Artikeln handlar om Maranatarörelsen, en kristen väckelserörelse som uppstod i Sverige på 1960-talet med rötter i Norge. Rörelsen var känd för sina extatiska sammankomster och starka medienärvaro, men har sedan dess minskat i inflytande.",
       "url": "https://www.svd.se/a/bd304b6b-4a9a-3bce-9af8-3d6e8c3e10a8/vackelse-med-extas-pa-motena",
       "source": "Svenska Dagbladet",
       "date": "2002-12-01"
+    },
+    {
+      "title": "Open Doors: Var sjunde kristen i världen är förföljd för sin tro",
+      "summary": "En rapport från Open Doors visar att var sjunde kristen globalt är förföljd för sin tro. Rapporten belyser den ökande förföljelsen av kristna världen över och behovet av medvetenhet och stöd.",
+      "url": "https://www.dagen.se/nyheter/open-doors-var-sjunde-kristen-i-varlden-ar-forfoljd-for-sin-tro/3237733",
+      "source": "Dagen",
+      "date": "2024-01-17"
     }
   ]
 }
