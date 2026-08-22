@@ -21,7 +21,7 @@ console.log(`Söker efter väckelse-nyheter... (${seenUrls.length} tidigare URL:
 const response = await client.responses.create({
     model: 'gpt-4o',
     tools: [{ type: 'web_search_preview' }],
-    input: `Sök på internet efter nyheter och rapporter om kristen väckelse sedan senaste sökning som är publicerad på vackelse.nu.
+    input: `Sök på internet efter nyheter och rapporter om kristen väckelse sedan senaste sökning som är publicerad på vackelse.nu och max 2 veckor gammal.
 Prioritera starkt nyheter från Sverige och saker som händer i Sverige — lokala väckelserörelser, bönrörelser, omvändelser, konferenser och andliga genombrott.
 Inkludera även globala nyheter om väckelse om inga svenska nyheter finns, men Sverige har alltid högst prioritet.
 Hitta 3–5 relevanta artiklar eller rapporter. Sök gärna på varldenidag.se och dagen.se .${seenSection}
