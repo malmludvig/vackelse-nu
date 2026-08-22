@@ -24,7 +24,10 @@ const response = await client.responses.create({
     input: `Sök på internet efter nyheter och rapporter om kristen väckelse. Sök endast efter nyheter som är max 2 veckor gamla.
 Prioritera starkt nyheter från Sverige och saker som händer i Sverige — lokala väckelserörelser, bönrörelser, omvändelser, konferenser och andliga genombrott.
 Inkludera även globala nyheter om väckelse om inga svenska nyheter finns, men Sverige har alltid högst prioritet.
-Hitta 3–5 relevanta artiklar eller rapporter. Sök gärna på varldenidag.se och dagen.se .  Sök speciellt efter nyheter som reflekterar budskapet från bibelorden som finns på https://vackelse.nu/#bibelord .${seenSection}
+Hitta 3–5 relevanta artiklar eller rapporter. Sök gärna på varldenidag.se och dagen.se .
+Sök speciellt efter nyheter som reflekterar budskapet från bibelorden som finns på https://vackelse.nu/#bibelord .
+Kontrollera att länkarna till de utvalda nyheterna fungerar. Innehållet på sidan får inte vara "Sidan kunde inte hittas", eller liknande.
+${seenSection}
 
 Svara ENBART med ett JSON-objekt i exakt detta format — ingen förklarande text runt om:
 {
