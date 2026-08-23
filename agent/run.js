@@ -32,6 +32,7 @@ Sök speciellt efter nyheter som reflekterar budskapet från bibelorden som finn
 Kontrollera att länkarna till de utvalda artiklar fungerar. Innehållet på länken till artikeln får inte vara "Sidan kunde inte hittas", "404", eller liknande.
 Ifall länken till artikeln inte fungerar ta bort den från sökresultatet.
 Resultatet av sökningen ska vara max 5 artiklar som matchar kriterierna nämnda ovan.
+Inkludera endast artiklar i sökresultatet som inte är äldre än 14 dagar.
 
 Exempel på artiklar som matchar kriterierna ovan bra är följande
 https://www.varldenidag.se/nyheter/kaend-hbtq-profil-kommer-ut-som-kristen-jesus-aelskade-mig-hela-vaegen/900400
