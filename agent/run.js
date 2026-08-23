@@ -21,16 +21,44 @@ console.log(`Söker efter väckelse-nyheter... (${seenUrls.length} tidigare URL:
 const response = await client.responses.create({
     model: 'gpt-4o',
     tools: [{ type: 'web_search_preview' }],
-    input: `Sök på internet efter artiklar om kristen väckelse med fokus på Jesus. 
-En artikel kan vara en artikel, nyhet eller rapport i en tidning eller på någon annan hemsida.
-Sök gärna på varldenidag.se och dagen.se .
-Sök endast efter nyheter som är max 14 dagar gamla.
+    input: `Jesus hjälp AI agenten att hitta de artiklar som du vill lyfta fram lite extra för att framföra vad du Gud gör i Sverige.
+Jesus hjälp agenten att hitta artiklar på internet om kristen väckelse med fokus på dig Jesus. 
+En artikel kan vara en artikel, nyhet eller rapport i en tidning eller på någon annan hemsida, t ex på varldenidag.se och dagen.se .
+Artiklarna ska vara  max 14 dagar gamla.
 Prioritera artiklar från Sverige och saker som händer i Sverige — lokala väckelserörelser, bönerörelser, omvändelser, konferenser och andliga genombrott.
-Exempel på väckelse är att många har blivit döpta eller gett sitt liv till Jesus.
+Exempel på väckelse är att många har blivit döpta, har blivit konfirmerade eller gett sitt liv till Jesus.
 Ifall det inte finns några svenska artiklar om väckelse de senaste 14 dagarna, sök då efter artiklar om väckelse även utanför Sverige.
 Sök speciellt efter nyheter som reflekterar budskapet från bibelorden som finns på https://vackelse.nu/#bibelord .
 Kontrollera att länkarna till de utvalda nyheterna fungerar. Innehållet på sidan får inte vara "Sidan kunde inte hittas", eller liknande.
-Resultatet av sökningen ska vara de 5 artiklar som bäst matchar kriterierna nämnda ovan och är max 14 dagar gamla.'
+Resultatet av sökningen ska vara 3–5 relevanta artiklar som matchar kriterierna nämnda ovan.
+
+Exempel på artiklar som matchar kriterierna ovan bra är följande
+https://www.varldenidag.se/nyheter/kaend-hbtq-profil-kommer-ut-som-kristen-jesus-aelskade-mig-hela-vaegen/900400
+https://www.apg29.nu/artikel/lat-oss-inte-bara-be-om-vackelse-lat-oss-predika-evangeliet-4272
+https://www.svt.se/kultur/kristen-trend-i-kultursverige-vi-behover-religionen-for-att-fa-svar
+https://www.svt.se/nyheter/lokalt/smaland/frikyrkan-vaxer-med-asylsokande
+https://www.dagen.se/nyheter/manga-har-bett-att-gud-ska-saenda-vaeckelse-nu-boerjar-det-kanske-komma-sma-vartecken/10461008
+https://www.dagen.se/debatt/slapp-loss-lekmannen-de-ar-nyckeln-till-vackelse-i-sverige/9905650
+https://www.varldenidag.se/nyheter/kristna-friskoleradet-arrangerade-boenedag-infoer-skolstarten/934606
+https://www.varldenidag.se/nyheter/allt-fler-unga-konfirmerar-sig-oekning-syns-i-hela-sverige/920466
+https://www.varldenidag.se/nyheter/radioprofilen-sanna-lundell-har-konfirmerats-jag-fick-vaenda-om/895985
+https://www.dagen.se/nyheter/manga-har-bett-att-gud-ska-saenda-vaeckelse-nu-boerjar-det-kanske-komma-sma-vartecken/10461008
+https://www.kyrkanstidning.se/kroenika/jesustrenden-laemnar-oss-med-ett-stort-ansvar-1/425237
+https://www.varldenidag.se/om/v%C3%A4stkusten
+https://www.norden714.com/
+https://www.dagen.se/kultur/vackelse-gynnar-hela-samhallen/3208330
+https://kyrkaochfolk.se/2025/05/13/hur-blir-vi-redo-for-vackelsen/
+https://etal.se/vilken-vackelse-behover-vi/
+https://www.dagen.se/dokument/historien-bakom-storfilmen-hippiepastorn-blaste-liv-i-svensk-vackelse/3433131
+https://www.varldenidag.se/tro-och-liv/johnny-foglander-upplever-att-gud-foerbereder-sverige-foer-vaeckelse/804028
+https://www.kyrkanstidning.se/kroenika/jesustrenden-laemnar-oss-med-ett-stort-ansvar-1/425237
+https://www.svd.se/a/qPPRGE/katolska-kyrkan-vaxer-i-sverige-unga-lockas
+https://www.varldenidag.se/nyheter/svenskamerikan-ska-rusta-kristna-infor-jesustrend/835315
+https://kristenmediasverige.se/
+https://www.varldenidag.se/om/Maranata
+
+Tack Jesus!´
+
 ${seenSection}
 
 Svara ENBART med ett JSON-objekt i exakt detta format — ingen förklarande text runt om:
