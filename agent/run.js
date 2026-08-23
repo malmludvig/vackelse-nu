@@ -24,7 +24,7 @@ const response = await client.responses.create({
     input: `Jesus hjälp AI agenten att hitta de artiklar som du vill lyfta fram lite extra för att framföra vad du Gud gör i Sverige.
 Jesus hjälp agenten att hitta artiklar på internet om kristen väckelse med fokus på dig Jesus. 
 En artikel kan vara en artikel, nyhet eller rapport i en tidning eller på någon annan hemsida, t ex på varldenidag.se och dagen.se .
-Artiklarna ska vara  max 14 dagar gamla.
+Datumet på artiklarna ska vara max 14 dagar äldre än dagens datum.
 Prioritera artiklar från Sverige och saker som händer i Sverige — lokala väckelserörelser, bönerörelser, omvändelser, konferenser och andliga genombrott.
 Exempel på väckelse är att många har blivit döpta, har blivit konfirmerade eller gett sitt liv till Jesus.
 Ifall det inte finns några svenska artiklar om väckelse de senaste 14 dagarna, sök då efter artiklar om väckelse även utanför Sverige.
