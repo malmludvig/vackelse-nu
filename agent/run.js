@@ -29,8 +29,9 @@ Prioritera artiklar från Sverige och saker som händer i Sverige — lokala vä
 Exempel på väckelse är att många har blivit döpta, har blivit konfirmerade eller gett sitt liv till Jesus.
 Ifall det inte finns några svenska artiklar om väckelse de senaste 14 dagarna, sök då efter artiklar om väckelse även utanför Sverige.
 Sök speciellt efter nyheter som reflekterar budskapet från bibelorden som finns på https://vackelse.nu/#bibelord .
-Kontrollera att länkarna till de utvalda nyheterna fungerar. Innehållet på sidan får inte vara "Sidan kunde inte hittas", eller liknande.
-Resultatet av sökningen ska vara 3–5 relevanta artiklar som matchar kriterierna nämnda ovan.
+Kontrollera att länkarna till de utvalda artiklar fungerar. Innehållet på länken till artikeln får inte vara "Sidan kunde inte hittas", "404", eller liknande.
+Ifall länken till artikeln inte fungerar ta bort den från sökresultatet.
+Resultatet av sökningen ska vara max 5 artiklar som matchar kriterierna nämnda ovan.
 
 Exempel på artiklar som matchar kriterierna ovan bra är följande
 https://www.varldenidag.se/nyheter/kaend-hbtq-profil-kommer-ut-som-kristen-jesus-aelskade-mig-hela-vaegen/900400
