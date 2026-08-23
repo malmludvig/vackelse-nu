@@ -30,7 +30,7 @@ Exempel på väckelse är att många har blivit döpta eller gett sitt liv till 
 Ifall det inte finns några svenska artiklar om väckelse de senaste 14 dagarna, sök då efter artiklar om väckelse även utanför Sverige.
 Sök speciellt efter nyheter som reflekterar budskapet från bibelorden som finns på https://vackelse.nu/#bibelord .
 Kontrollera att länkarna till de utvalda nyheterna fungerar. Innehållet på sidan får inte vara "Sidan kunde inte hittas", eller liknande.
-Resultatet av sökningen ska vara 3–5 relevanta artiklar som matchar kriterierna nämnda ovan.'
+Resultatet av sökningen ska vara de 5 artiklar som bäst matchar kriterierna nämnda ovan och är max 14 dagar gamla.'
 ${seenSection}
 
 Svara ENBART med ett JSON-objekt i exakt detta format — ingen förklarande text runt om:
