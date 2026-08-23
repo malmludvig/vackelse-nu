@@ -34,7 +34,7 @@ Ifall länken till artikeln inte fungerar ta bort den från sökresultatet.
 Resultatet av sökningen ska vara max 5 artiklar som matchar kriterierna nämnda ovan.
 Inkludera endast artiklar i sökresultatet som inte är äldre än 14 dagar.
 
-Exempel på artiklar som matchar kriterierna ovan bra är följande
+Exempel på artiklar som matchar kriterierna ovan bra är följande. Använd dessa som inspiration men inte som sökresultat.
 https://www.varldenidag.se/nyheter/kaend-hbtq-profil-kommer-ut-som-kristen-jesus-aelskade-mig-hela-vaegen/900400
 https://www.apg29.nu/artikel/lat-oss-inte-bara-be-om-vackelse-lat-oss-predika-evangeliet-4272
 https://www.svt.se/kultur/kristen-trend-i-kultursverige-vi-behover-religionen-for-att-fa-svar
