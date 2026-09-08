@@ -206,12 +206,17 @@ a:hover { text-decoration: underline; }
 .agent-results { margin-bottom: 2rem; }
 
 .result-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
     border: 1px solid var(--border);
     padding: 1rem 1.2rem;
     margin-bottom: 0.8rem;
     transition: background var(--ease), color var(--ease);
     cursor: default;
 }
+
+.result-body { flex: 1; min-width: 0; }
 .result-card:hover { background: var(--text); color: var(--bg); }
 .result-card:hover .result-source,
 .result-card:hover .result-excerpt,
@@ -224,6 +229,15 @@ a:hover { text-decoration: underline; }
     letter-spacing: 0.12em;
     display: block;
     margin-bottom: 0.3rem;
+}
+
+.result-image {
+    display: block;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border: 1px solid var(--border);
 }
 
 .result-title { font-size: 0.95rem; font-weight: bold; margin-bottom: 0.4rem; }

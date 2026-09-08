@@ -2,16 +2,23 @@
 
 // ── STATE ─────────────────────────────────────────────────────────────────
 let lang = 'sv';
+let agentResults = null; // null = not loaded yet, [] = loaded, empty
 
 // ── TRANSLATIONS ──────────────────────────────────────────────────────────
 const T = {
     sv: {
         nav_syfte:    'Syfte',
+        nav_agent:    'Väckelsenytt',
         nav_blogg:    'Blogg',
         nav_bibelord: 'Bibelord',
         nav_om:       'Om oss',
         contact:      'Kontakt:',
 
+        agentTitle:   '_ senaste väckelsenytt',
+        agentLead:    'Artiklar hittade av vår sök-agent.',
+        agentLoading: 'Laddar...',
+        agentEmpty:   'Inga resultat ännu — kör agenten via GitHub Actions.',
+        agentError:   'Kunde inte ladda resultat.',
 
         bloggTitle:   '_ blogg',
         syfteTitle:   '_ syfte',
@@ -36,11 +43,17 @@ const T = {
     },
     en: {
         nav_syfte:    'Purpose',
+        nav_agent:    'Revival News',
         nav_blogg:    'Blog',
         nav_bibelord: 'Bible Verses',
         nav_om:       'About',
         contact:      'Contact:',
 
+        agentTitle:   '_ latest revival news',
+        agentLead:    'Articles found by our search agent.',
+        agentLoading: 'Loading...',
+        agentEmpty:   'No results yet — run the agent via GitHub Actions.',
+        agentError:   'Could not load results.',
 
         bloggTitle:   '_ blog',
         syfteTitle:   '_ purpose',
@@ -439,6 +452,10 @@ function applyLang() {
     // Blog
     document.getElementById('bloggTitle').textContent   = t.bloggTitle;
 
+    // Agent
+    document.getElementById('agentTitle').textContent = t.agentTitle;
+    document.getElementById('agentLead').textContent  = t.agentLead;
+
     // Syfte
     document.getElementById('syfteTitle').textContent   = t.syfteTitle;
     document.getElementById('syfteH3').textContent      = t.syfteH3;
@@ -458,7 +475,51 @@ function applyLang() {
 
     renderBlog();
     renderVerses();
+    renderAgentResults();
 
+}
+
+async function loadAgentResults() {
+    if (agentResults !== null) return renderAgentResults();
+    try {
+        const res = await fetch('data/results.json');
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        agentResults = data.items || [];
+    } catch (_) {
+        agentResults = 'error';
+    }
+    renderAgentResults();
+}
+
+function renderAgentResults() {
+    const t = T[lang];
+    const el = document.getElementById('agentResults');
+    if (!el) return;
+
+    if (agentResults === null) {
+        el.innerHTML = `<p class="agent-status">${t.agentLoading}</p>`;
+        return;
+    }
+    if (agentResults === 'error') {
+        el.innerHTML = `<p class="agent-status">${t.agentError}</p>`;
+        return;
+    }
+    if (agentResults.length === 0) {
+        el.innerHTML = `<p class="agent-status">${t.agentEmpty}</p>`;
+        return;
+    }
+
+    el.innerHTML = agentResults.map(r => `
+        <div class="result-card">
+            ${r.image ? `<img class="result-image" src="${r.image}" alt="" loading="lazy" onerror="this.remove()">` : ''}
+            <div class="result-body">
+                <span class="result-source">${r.source || ''} — ${r.date || ''}</span>
+                <div class="result-title"><a href="${r.url || '#'}" target="_blank" rel="noopener">${r.title}</a></div>
+                <div class="result-excerpt">${r.summary}</div>
+            </div>
+        </div>
+    `).join('');
 }
 
 function renderBlog() {
@@ -517,4 +578,5 @@ function toggleVerse(i) {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('footerYear').textContent = new Date().getFullYear();
     applyLang();
+    loadAgentResults();
 });

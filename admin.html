@@ -121,7 +121,8 @@ Svara ENBART med ett JSON-objekt i exakt detta format — ingen förklarande tex
       "summary": "2–3 meningar som sammanfattar innehållet på svenska",
       "url": "https://...",
       "source": "Källans namn",
-      "date": "YYYY-MM-DD"
+      "date": "YYYY-MM-DD",
+      "image": "https://... (artikelns huvudbild)"
     }
   ]
 }</div>
@@ -162,10 +163,13 @@ Svara ENBART med ett JSON-objekt i exakt detta format — ingen förklarande tex
                         : '—';
                     const items = (run.items || []).map(r => `
                         <div class="result-card">
-                            <span class="result-source">${r.source || ''} — ${r.date || ''}</span>
-                            <div class="result-title"><a href="${r.url || '#'}" target="_blank" rel="noopener">${r.title}</a></div>
-                            <div class="result-excerpt">${r.summary}</div>
-                            ${r.url ? `<div class="result-url"><a href="${r.url}" target="_blank" rel="noopener">${r.url}</a></div>` : ''}
+                            ${r.image ? `<img class="result-image" src="${r.image}" alt="" loading="lazy" onerror="this.remove()">` : ''}
+                            <div class="result-body">
+                                <span class="result-source">${r.source || ''} — ${r.date || ''}</span>
+                                <div class="result-title"><a href="${r.url || '#'}" target="_blank" rel="noopener">${r.title}</a></div>
+                                <div class="result-excerpt">${r.summary}</div>
+                                ${r.url ? `<div class="result-url"><a href="${r.url}" target="_blank" rel="noopener">${r.url}</a></div>` : ''}
+                            </div>
                         </div>
                     `).join('');
 

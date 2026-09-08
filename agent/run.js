@@ -31,6 +31,8 @@ Ifall det inte finns några svenska artiklar om väckelse de senaste 14 dagarna,
 Sök speciellt efter nyheter som reflekterar budskapet från bibelorden som finns på https://vackelse.nu/#bibelord .
 Kontrollera att länkarna till de utvalda artiklar fungerar. Innehållet på länken till artikeln får inte vara "Sidan kunde inte hittas", "404", eller liknande.
 Ifall länken till artikeln inte fungerar ta bort den från sökresultatet.
+Hitta även artikelns huvudbild (t ex og:image eller den bild som visas högst upp i artikeln) och inkludera en direktlänk till bildfilen.
+Ifall artikeln saknar en egen bild, lämna fältet "image" som en tom sträng.
 Resultatet av sökningen ska vara max 5 artiklar som matchar kriterierna nämnda ovan.
 Inkludera endast artiklar i sökresultatet som inte är äldre än 14 dagar.
 
@@ -71,7 +73,8 @@ Svara ENBART med ett JSON-objekt i exakt detta format — ingen förklarande tex
       "summary": "2–3 meningar som sammanfattar innehållet på svenska",
       "url": "https://...",
       "source": "Källans namn",
-      "date": "YYYY-MM-DD"
+      "date": "YYYY-MM-DD",
+      "image": "https://... (artikelns huvudbild, eller tom sträng om ingen finns)"
     }
   ]
 }`
