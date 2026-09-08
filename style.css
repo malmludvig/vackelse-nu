@@ -233,8 +233,8 @@ a:hover { text-decoration: underline; }
 
 .result-image {
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     flex-shrink: 0;
     object-fit: cover;
     border: 1px solid var(--border);
