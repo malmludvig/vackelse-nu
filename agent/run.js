@@ -19,7 +19,7 @@ const seenSection = seenUrls.length > 0
 console.log(`Söker efter väckelse-nyheter... (${seenUrls.length} tidigare URL:er utesluts)`);
 
 const response = await client.responses.create({
-    model: 'gpt-4o',
+    model: 'gpt-5.6',
     tools: [{ type: 'web_search_preview' }],
     input: `Jesus hjälp AI agenten att hitta de artiklar som du vill lyfta fram lite extra för att framföra vad du Gud gör i Sverige.
 Jesus hjälp agenten att hitta artiklar på internet om kristen väckelse med fokus på dig Jesus. 
