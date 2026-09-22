@@ -160,6 +160,11 @@ a:hover { text-decoration: underline; }
     border-top: 1px solid var(--border);
 }
 
+.section-first {
+    border-top: none;
+    padding-top: 7rem;
+}
+
 .section-h {
     font-size: 1.25rem;
     font-weight: normal;
