@@ -9,7 +9,6 @@ const T = {
     sv: {
         nav_syfte:    'Syfte',
         nav_agent:    'Väckelsenytt',
-        nav_blogg:    'Blogg',
         nav_bibelord: 'Bibelord',
         nav_om:       'Om oss',
         contact:      'Kontakt:',
@@ -20,7 +19,6 @@ const T = {
         agentEmpty:   'Inga resultat ännu — kör agenten via GitHub Actions.',
         agentError:   'Kunde inte ladda resultat.',
 
-        bloggTitle:   '_ blogg',
         syfteTitle:   '_ syfte',
         syfteH3:      'Vad är vackelse.nu?',
         syfteP1:      'Att kommunicera vad Gud gör i Sverige just nu.',
@@ -44,7 +42,6 @@ const T = {
     en: {
         nav_syfte:    'Purpose',
         nav_agent:    'Revival News',
-        nav_blogg:    'Blog',
         nav_bibelord: 'Bible Verses',
         nav_om:       'About',
         contact:      'Contact:',
@@ -55,7 +52,6 @@ const T = {
         agentEmpty:   'No results yet — run the agent via GitHub Actions.',
         agentError:   'Could not load results.',
 
-        bloggTitle:   '_ blog',
         syfteTitle:   '_ purpose',
         syfteH3:      'What is vackelse.nu?',
         syfteP1:      'To communicate what God is doing in Sweden right now.',
@@ -77,46 +73,6 @@ const T = {
         langBtn:      'SV',
     }
 };
-
-// ── BLOG POSTS ────────────────────────────────────────────────────────────
-const POSTS = [
-    {
-        date:    '2024-01-15',
-        dateSv:  '15 januari 2024',
-        dateEn:  'January 15, 2024',
-        titleSv: 'Välkommen till vackelse.nu',
-        titleEn: 'Welcome to vackelse.nu',
-        bodySv:  `Det här är första inlägget på vackelse.nu. Vi vill berätta om vad Gud gör i Sverige idag — om bön, om omvändelse, om väckelse.
-
-Vi tror att Gud talar. Vi tror att han handlar. Och vi vill fånga det.
-
-Den Helige Ande rör sig. Häng med.`,
-        bodyEn:  `This is the first post on vackelse.nu. We want to tell what God is doing in Sweden today — about prayer, repentance, revival.
-
-We believe God speaks. We believe He acts. And we want to capture it.
-
-The Holy Spirit is moving. Come along.`,
-        tags: ['#vackelse', '#välkommen', '#helige_ande']
-    },
-    {
-        date:    '2024-01-20',
-        dateSv:  '20 januari 2024',
-        dateEn:  'January 20, 2024',
-        titleSv: 'Bönerörelse i Göteborg',
-        titleEn: 'Prayer movement in Gothenburg',
-        bodySv:  `I Göteborg samlas ungdomar varje torsdag för bön. Inga program, ingen agenda — bara tillbedjan och bön för Sverige.
-
-Möten som börjat med tio personer har vuxit till hundratals. Det är något på gång.
-
-"Hans rike komma, Hans vilja ske — på jorden som i himlen."`,
-        bodyEn:  `In Gothenburg, young people gather every Thursday for prayer. No program, no agenda — just worship and prayer for Sweden.
-
-Meetings that started with ten people have grown to hundreds. Something is happening.
-
-"His kingdom come, His will be done — on earth as it is in heaven."`,
-        tags: ['#bön', '#göteborg', '#ungdomar']
-    }
-];
 
 // ── BIBLE VERSES ──────────────────────────────────────────────────────────
 const VERSES = [
@@ -449,9 +405,6 @@ function applyLang() {
     document.getElementById('heroSub').textContent      = t.heroSub;
     document.getElementById('heroKingdom').textContent  = t.heroKingdom;
 
-    // Blog
-    document.getElementById('bloggTitle').textContent   = t.bloggTitle;
-
     // Agent
     document.getElementById('agentTitle').textContent = t.agentTitle;
     document.getElementById('agentLead').textContent  = t.agentLead;
@@ -473,7 +426,6 @@ function applyLang() {
     document.getElementById('omTitle').textContent = t.omTitle;
     document.getElementById('omP1').textContent    = t.omP1;
 
-    renderBlog();
     renderVerses();
     renderAgentResults();
 
@@ -522,16 +474,6 @@ function renderAgentResults() {
     `).join('');
 }
 
-function renderBlog() {
-    document.getElementById('blogPosts').innerHTML = POSTS.map(p => `
-        <article class="post">
-            <span class="post-date">${lang === 'sv' ? p.dateSv : p.dateEn}</span>
-            <h3 class="post-title">${lang === 'sv' ? p.titleSv : p.titleEn}</h3>
-            <div class="post-body">${lang === 'sv' ? p.bodySv : p.bodyEn}</div>
-            <div class="post-tags">${p.tags.join(' ')}</div>
-        </article>
-    `).join('');
-}
 
 function renderVerses() {
     document.getElementById('verseList').innerHTML = VERSES.map((v, i) => {
